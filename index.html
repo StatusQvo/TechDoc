@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="Keturah Resort, resort" />
     <link href="styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css"
+    />
     <title>Technical Documentation Result</title>
   </head>
 
   <body>
-    <div class="allContent">
+    <div class="allContent bodyBackgrnd">
       <div class="column1">
         <img src="img/1.png" alt="1_pic_resort" />
         <img src="img/2.png" alt="2_pic_resort" />
@@ -18,14 +22,20 @@
       </div>
 
       <div class="column2">
-        <div class="panarama-view">
-          <img
-            class="panarama-bckgrnd"
-            src="img/dark_bg.png"
-            alt="360_panarama_bckgrnd"
-          />
+        <div class="panarama-view-container">
+          <div
+            class="panarama-view visuallyhidden"
+            role="dialog"
+            tabindex="-1"
+            aria-hidden="true"
+            style="background-image: url('img/dark_bg.png')"
+          >
+            <div class="panarama-img" id="viewer"></div>
 
-          <img class="panarama-img" src="img/3.png" alt="360_panarama_view" />
+            <div class="close-modal" id="panaramaClose">
+              <img src="img/Brochure/Vector.png" />
+            </div>
+          </div>
         </div>
 
         <div class="modal-main">
@@ -35,59 +45,107 @@
             alt="picture-map"
           />
 
-          <div class="logoType logo-elt">
+          <div class="logoType">
             <table class="logo-table text4All">
               <tr>
-                <td><img src="img/modalPic/GroupLogo.png"/></td>
+                <td><img src="img/modalPic/GroupLogo.png" /></td>
                 <td></td>
                 <td>
-                    <img id="M-tg" src="img/modalPic/icon-tg.png"/>
-                    <img id="M-wz" src="img/modalPic/icon-wz.png"/>
+                  <a href="https://t.me/LifeKoZ" target="_blank"
+                    ><img src="img/modalPic/icon-tg.png"
+                  /></a>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=998901860281"
+                    target="_blank"
+                    ><img src="img/modalPic/icon-wz.png"
+                  /></a>
                 </td>
                 <td>+99899 XXX XX XX</td>
               </tr>
             </table>
           </div>
-          
-          <div class="select1">
-            <img
-              id="map-btn"
-              class="logo-elt"
-              src="img/modalPic/mapSelect.png"
-            />
-          </div>
 
-          <div class="select2">  
-            <img
-              id="map-brochure"
-              class="logo-elt"
-              src="img/modalPic/Brochure.png"
-            />
-          </div>
+          <button
+            id="map360M1"
+            class="buttonHover buttonAct"
+            style="background-image: url('img/modalPic/mapSelect.png')"
+          ></button>
+
+          <button
+            id="btn-brochure"
+            class="buttonHover buttonAct"
+            style="background-image: url('img/modalPic/Brochure.png')"
+          ></button>
         </div>
 
-        <div class="form-info">
+        <div
+          class="form-info visuallyhidden"
+          role="dialog"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <!-- Modal Window -->
           <div class="form-modal">
-          <img class="modal-info" src="img/Brochure/FormBackgrnd.png" alt="input-form" />
-  
-        <div class="form-and-btn">
-          <form class="text4All" id="form-Elt">
-            <input type="text" id="fName" placeholder="Your name">
-            <input type="text" id="fMail" placeholder="Your e-mail">
-            <input type="text" id="fPhone" placeholder="Phone number">
-          </form>
-          <button type="submit">JOIN NOW</button>  
-        </div>
-        </div>
-      
-      <div class="b-text">
-        <img class="b-text1" src="img/Brochure/B-text1.png" alt="input-form" />
-        <img class="b-text2" src="img/Brochure/B-text2.png" alt="input-form" />
-        </div>
-     
-      </div>
+            <div
+              class="form-modal-txt"
+              style="background-image: url('img/Brochure/FormBackgrnd.png')"
+            >
+              <img
+                class="b-text1"
+                src="img/Brochure/B-text1.png"
+                alt="input-form"
+              />
+              <img
+                class="b-text2"
+                src="img/Brochure/B-text2.png"
+                alt="input-form"
+              />
 
-  </div>
+              <div class="B-contacts">
+                <a href="https://t.me/LifeKoZ" target="_blank"
+                  ><img src="img/Telegram.png" alt="tg-contact"
+                /></a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=998901860281"
+                  target="_blank"
+                  ><img src="img/WhatsApp.png" alt="tg-contact"
+                /></a>
+              </div>
+            </div>
+
+            <div class="form-and-Input">
+              <form class="text4All form-input-elt">
+                <input
+                  type="text"
+                  id="fName"
+                  placeholder="Your name"
+                  autocomplete="off"
+                />
+                <input
+                  type="text"
+                  id="fMail"
+                  placeholder="Your e-mail"
+                  autocomplete="off"
+                />
+                <input
+                  type="text"
+                  id="fPhone"
+                  placeholder="Phone number"
+                  autocomplete="off"
+                />
+              </form>
+              <button type="submit">JOIN NOW</button>
+            </div>
+          </div>
+          <!-- Modal Window -->
+          <div class="close-modal" id="brochureClose">
+            <img src="img/Brochure/Vector.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.js"></script>
     <script src="code.js" defer></script>
   </body>
 </html>
